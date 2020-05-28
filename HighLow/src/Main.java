@@ -1,21 +1,29 @@
 import javax.swing.*;
 
 public class Main {
-
-    private static int loss;
-    private static int wins;
-    private static Card card;
-    private static Card card2;
-    private static int cardCount;
+	//Instance variables 
+    private static int loss;//int that stores number of losses
+    private static int wins;//int that stores number of wins
+    private static Card card;//creates first card
+    private static Card card2;//creates second card 
+    private static int cardCount;//int that stores the amount of cards
     static String[] Rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+    //creates a string array of ranks
     static int[] pointValue = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    //creates an int array of card values 
     static String[] Suit = {"Clubs", "Diamond", "Spades", "Hearts"};
+    //creates a string array of card suits
     static String[] option1 = {"Higher", "Lower", "Exit"};
+    //creates a string array of options
 
-
+/*This is the main method, it first prints a paragraph explaining the game, it then checks that your card count is less than 
+ * 26 and losses are less than 5, if your cards are the same, nothing happens, if your guess is correct your wins increase, if
+ * you lose your  losses increase, if your losses exceed four the game ends, if you go through every card without getting
+ * more than five losses you win
+ * */
     public static void main(String[] args) {
-        loss = 0;
-        wins = 0;
+        loss = 0; 
+        wins = 0; 
         cardCount = 0;
         JOptionPane.showMessageDialog(null, "                      Welcome to High-LO!\n" +
                 "                        The game is real simple\n" 
@@ -36,10 +44,10 @@ public class Main {
                     wins=wins;
                 }
                 else if (card.pointValue() > card2.pointValue()) {
-                    JOptionPane.showMessageDialog(null, "Right :D ! Other card is " + card2);
+                    JOptionPane.showMessageDialog(null, "Right! Other card is " + card2);
                     wins++;
                 } else  {
-                    JOptionPane.showMessageDialog(null, "Wrong ;( . Other card is " + card2);
+                    JOptionPane.showMessageDialog(null, "Wrong. Other card is " + card2);
                     loss++;
                 }
             }
@@ -48,10 +56,10 @@ public class Main {
                     JOptionPane.showMessageDialog(null, "ULTRA RARE! SAME CARD VALUE!!!!\nNothing happens lol");
                 }
                 if (card.pointValue() < card2.pointValue()) {
-                    JOptionPane.showMessageDialog(null, "Right :D ! Other card is " + card2);
+                    JOptionPane.showMessageDialog(null, "Right! Other card is " + card2);
                     wins++;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Wrong ;( . Other card is " + card2);
+                    JOptionPane.showMessageDialog(null, "Wrong. Other card is " + card2);
                     loss++;
                 }
             }
